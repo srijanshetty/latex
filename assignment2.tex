@@ -1,0 +1,47 @@
+\documentclass[12pt,a4paper,titlepage]{article}
+
+%Preamble
+\author{Srijan R Shetty}
+\title{Grade-school Algorithm for Integer Multiplication}
+\pagestyle{myheadings}
+\markright{Complab Assignment 3: Latex}
+\usepackage{algpseudocode}
+
+\begin{document}
+
+\maketitle
+
+%abstract of the report
+\begin{abstract}
+The following report contains a brief description and analysis of the Grade-school algorithm for integer multiplication
+\end{abstract}
+
+\tableofcontents
+
+\newpage
+
+\section{Grade-school Algorithm}
+\subsection{Introduction}
+The Grade-school algorithm for the multiplication for two numbers is a trivial, bruteforce algorithm for the multiplication of two integers. In this algorithm, the each digit of the one of the numbers is multiplied with each digit of the other number. This product is then multiplied by a certain exponent raised to the base of the system and added to the final sum.
+
+\subsection{Algorithm}
+The psuedo code for the bit by bit algorithm is:\\
+
+\begin{minipage}{3000pt}
+\textbf{Data:} Two arrays A, B storing their digits\\
+\textbf{Output:} The product A $\times$ B\\ 
+\\long int multiply(A[],B[])\\
+\hspace{1cm}\textbf{for} i=0 \textbf{to} n \textbf{do}\\
+\hspace{2cm}\textbf{for} j=0 \textbf{to} m \textbf{do}\\
+\hspace{3cm}prod$\,\leftarrow\,$ A[i]$\,\times\,$ B[j];\\
+\hspace{3cm}sum$\,\leftarrow\,$ prod$\,\times\,$pow(10,j);\\
+\hspace{2cm}\textbf{end}\\
+\hspace{2cm}total$\,\leftarrow\,$ total+(sum$\,\times\,$pow(10,i));\\
+\hspace{1cm}\textbf{end}\\
+\textbf{print} total\\
+\end{minipage}
+
+\subsection{Time Complexity} 
+In the above algorithm, the first for loop runs n times while the second one runs for m times. So the overall time complexity is \textbf{O(n)$\times$O(m)=O(mn)}
+
+\end{document}
