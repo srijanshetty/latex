@@ -1,0 +1,79 @@
+\documentclass[12pt,a4paper,titlepage]{article}
+
+%Preamble
+\author{Srijan R Shetty\\11727}
+\title{Grade-school Algorithm for Integer Multiplication}
+\pagestyle{myheadings}
+\markright{Complab Assignment 3: Latex}
+\usepackage{enumitem}
+
+\begin{document}
+
+\maketitle
+
+%abstract of the report
+\begin{abstract}
+The following report contains a brief description and analysis of the Grade-school algorithm for integer multiplication
+\end{abstract}
+
+\tableofcontents
+
+\newpage
+
+\section{Grade-school Algorithm}
+
+\subsection{Problem}
+To design an algorithm to perform multiplication of two numbers stored as arrays of size n and m respectively using grade-school algorithm.
+
+\subsection{Solution}
+The Grade-school algorithm for the multiplication for two numbers is a trivial, bruteforce algorithm for the multiplication of two integers. In this algorithm, the each digit of the one of the numbers is multiplied with each digit of the other number. This product is then multiplied by a certain exponent raised to the base of the system and added to the final sum.
+
+\subsection{Data Structures Used}
+No extra data structures were used in the implementation of this algorithm
+
+\subsection{Algorithm}
+The psuedo code for the Grade-school algorithm is:\\
+
+\fbox{
+\begin{minipage}{360pt}
+\textbf{Data:} Two arrays A, B of size n and m respectively, storing their digits\\
+\textbf{Output:} The product A $\times$ B 
+\begin{enumerate}[itemsep=-2mm]
+\item long int multiply(A[ ],B[ ])
+\item \hspace{1cm}carry $\,\leftarrow\,$ 0;
+\item \hspace{1cm}\textbf{for} i=n-1 \textbf{to} 0 \textbf{do}
+\item \hspace{2cm}\textbf{for} j=m-1 \textbf{to} 0 \textbf{do}
+\item \hspace{3cm}prod $\leftarrow$ A[i] $\times$ B[j];
+\item \hspace{3cm}\textbf{if} j=0 \textbf{then}
+\item \hspace{4cm}digit $\leftarrow$ prod+carry;
+\item \hspace{4cm}carry $\leftarrow$ 0;
+\item \hspace{3cm}\textbf{else}
+\item \hspace{4cm}digit $\leftarrow$ (prod+carry)\%10;
+\item \hspace{4cm}carry $\leftarrow$ (prod+carry)/10;
+\item \hspace{3cm}sum $\leftarrow$ digit $\times 10^j$;
+\item \hspace{2cm}\textbf{end}
+\item \hspace{2cm}total $\leftarrow$ total + (sum $\times 10^i$);
+\item \hspace{1cm}\textbf{end}
+\item \textbf{print} total
+\end{enumerate}
+\end{minipage}
+}
+
+\subsection{Analysis of Time and Space Complexity} 
+In the above algorithm, the first for loop runs n times while the second one runs for m times. So the overall time complexity is \textbf{O(n) $\times$ O(m)=O(mn)}. 
+
+As the above algorithm does not use any additional data structures, so the space complexity is \textbf{O(1)}
+\subsection{Summary}
+\begin{tabular}{|r|l|}
+\hline
+Data & Two arrays A[ ] and B[ ] of size n and m respectively\\ 
+\hline
+Output & The product A[ ] $\times$ B[ ]\\
+\hline
+Time Complexity & \textbf{O(mn)}\\
+\hline
+Space Complexity & \textbf{O(1)}\\
+\hline
+\end{tabular}
+
+\end{document}
